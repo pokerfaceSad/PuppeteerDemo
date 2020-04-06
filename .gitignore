@@ -1,0 +1,6 @@
+node_modules
+chrome-mac
+build
+package-lock.json
+.DS_Store
+*.png

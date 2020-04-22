@@ -31,14 +31,15 @@ describe('add todo', function () {
       expect(expectInputContent).to.eql('new todo item');
     }) 
 
-    // it('should done todo correct', async function() {
-    //   let icon_class = await page.evaluate('document.querySelector("#\\33  > i.ui.circle.outline.icon")')
-    //   expect(icon_class).to.eql('ui circle outline icon')
-    //   await page.click('document.querySelector("#\\33  > i.ui.circle.outline.icon")')
-    //   let new_icon_class = await page.evaluate('document.querySelector("#\\33  > i.ui.check.circle.outline.icon")')
-    //   expect(new_icon_class).to.eql('ui check circle outline icon')
+    it('should done todo correct', async function() {
+      let icon_class = await page.evaluate('document.querySelector("#item2 > i.ui.circle.outline.icon").getAttribute("class")')
+      expect(icon_class).to.eql('ui circle outline icon')
+      await page.click('#item2 > i.ui.circle.outline.icon')
+      await page.waitFor("#item2 > i.ui.check.circle.outline.icon")
+      let new_icon_class = await page.evaluate('document.querySelector("#item2 > i.ui.check.circle.outline.icon").getAttribute("class")')
+      expect(new_icon_class).to.eql('ui check circle outline icon')
 
 
-    // })
+    })
 
   });
